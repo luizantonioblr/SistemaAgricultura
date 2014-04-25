@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sistema da Agricultura</title>
+    </h:head>
+    <h:body>
+        <h2 align = "center" > Bem-Vindo ao Sistema da Agricultura </h2>
+        <h:form>
+            <p:menubar>
+                <p:menuitem value = "Inicio" url = "Menu.xhtml"/>
+                <p:submenu label = "Agricultor">
+                    <p:menuitem value = "Atualizar Conta" url = "CadastroAgricultor.xhtml"/>
+                </p:submenu>
+                <p:submenu label = "Cultura">
+                    <p:menuitem value = "Cadastrar Cultura" url = "#"/>
+                    <p:menuitem value = "Culturas Cadastradas" url = "#"/>
+                </p:submenu>
+                <p:submenu label = "Plantio">
+                    <p:menuitem value = "Novo Plantio" url = "#"/>
+                    <p:menuitem value = "Etapas do Plantio" url = "#"/>
+                    <p:menuitem value = "Serviços no Plantio" url = "#"/>
+                </p:submenu>
+                <p:menuitem value = "Relatorio" url = "#"/>
+                <p:menuitem value = "Dispesas" url = "#"/>
+                <f:facet name="options">
+                    <p:commandButton type = "button" value = "Sair" icon = "ui-icon-extlink" />
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </h:body>
+</html>
