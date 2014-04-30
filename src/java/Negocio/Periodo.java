@@ -3,7 +3,6 @@ package Negocio;
 import java.util.Date;
 
 public class Periodo {
-
     private Date dataInicio;
     private Date dataFim;
 
@@ -16,12 +15,12 @@ public class Periodo {
             throw new IllegalArgumentException("Data inicio não pode ser depois de Data fim");
         }
 
-        this.dataInicio = dataInicio;
         if (dataFim.before(dataInicio)) {
             throw new IllegalArgumentException("Data fim não pode ser antes de Data inicio");
         }
-        this.dataFim = dataFim;
-
+        
+        this.dataInicio = dataInicio;
+	this.dataFim = dataFim;
     }
 
     public Date getDataInicio() {
@@ -31,5 +30,4 @@ public class Periodo {
     public Date getDataFim() {
         return dataFim;
     }
-
 }
