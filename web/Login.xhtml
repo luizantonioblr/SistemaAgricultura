@@ -13,11 +13,11 @@
 
             <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true">
                 <h:form>
-                    <h:outputText value = "Login :" />
+                    <h:outputText value = "Login : " />
                     <p:inputText value = "" />
-                    <h:outputText value = "Senha: " />
+                    <h:outputText value = "Senha : " />
                     <p:password value = "" />
-                    <p:commandButton value = "Entrar" />
+                    <p:commandButton value = "Entrar" oncomplete = "location.href='Menu.xhtml'"/>
                 </h:form>
             </p:layoutUnit>
 
@@ -30,12 +30,13 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
+
                 <h:form>
                     <h:panelGrid columns = "2">
                         <h:outputText value = "Nome: " />
                         <p:inputText value = "" />
                         <h:outputText value = "Celular: " />
-                        <p:inputMask value = "" mask = "(  )    -    " />
+                        <p:inputMask value = "" mask = "(99)9999-9999" />
                         <h:outputText value = "E-mail: "/>
                         <p:inputText value = "" />
                         <h:outputText value = "Senha: " />
@@ -50,4 +51,3 @@
         </p:layout>
     </h:body>
 </html>
-

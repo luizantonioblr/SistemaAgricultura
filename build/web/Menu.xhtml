@@ -11,10 +11,10 @@
             <p:menubar>
                 <p:menuitem value = "Inicio" url = "Menu.xhtml"/>
                 <p:submenu label = "Agricultor">
-                    <p:menuitem value = "Atualizar Conta do usuario" url = "CadastroAgricultor.xhtml"/>
+                    <p:menuitem value = "Atualizar Conta" url = "AtualizarConta.xhtml"/>
                 </p:submenu>
                 <p:submenu label = "Cultura">
-                    <p:menuitem value = "Cadastrar Cultura" url = "#"/>
+                    <p:menuitem value = "Cadastrar Cultura" url = "CadastroCultura.xhtml"/>
                     <p:menuitem value = "Culturas Cadastradas" url = "#"/>
                 </p:submenu>
                 <p:submenu label = "Plantio">
@@ -23,11 +23,14 @@
                     <p:menuitem value = "Serviços no Plantio" url = "#"/>
                 </p:submenu>
                 <p:menuitem value = "Relatorio" url = "#"/>
-                <p:menuitem value = "Dispesas" url = "#"/>
+                <p:menuitem value = "Despesas" url = "#"/>
                 <f:facet name="options">
-                    <p:commandButton type = "button" value = "Sair" icon = "ui-icon-extlink"/>
+                    <p:commandButton value = "Sair" icon = "ui-icon-extlink" oncomplete = "location.href='Login.xhtml'"/>
                 </f:facet>
             </p:menubar>
+            <!--<p:layoutUnit position="west" size="610" collapsible="true">
+                <h:graphicImage library="img" name="PorDoSol.JPG" height="430" width="600"/>
+            </p:layoutUnit>-->
         </h:form>
     </h:body>
 </html>
