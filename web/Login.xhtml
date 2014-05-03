@@ -9,21 +9,22 @@
         </f:facet>
     </h:head>
     <h:body>
+        <p:growl id="gro" sticky="false" life="4000" />
         <p:layout fullPage="true">
 
             <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true">
                 <h:form>
                     <h:outputText value = "Login : " />
                     <p:inputText value = "" />
-                    <h:outputText value = "Senha : " />
+                    <h:outputText value = " Senha : " />
                     <p:password value = "" />
                     <p:commandButton value = "Entrar" oncomplete = "location.href='Menu.xhtml'"/>
                 </h:form>
             </p:layoutUnit>
 
-            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+            <!--<p:layoutUnit position="south" size="100" closable="true" collapsible="true">
                 Software Agricultura
-            </p:layoutUnit>
+            </p:layoutUnit>-->
 
             <p:layoutUnit position="west" size="610"  collapsible="true">
                 <h:graphicImage library="img" name="PorDoSol.JPG" height="430" width="600"/>
@@ -34,18 +35,26 @@
                 <h:form>
                     <h:panelGrid columns = "2">
                         <h:outputText value = "Nome: " />
-                        <p:inputText value = "" />
+                        <p:inputText value = "#{agricultor.nome}" />
                         <h:outputText value = "Celular: " />
-                        <p:inputMask value = "" mask = "(99)9999-9999" />
+                        <p:inputMask value = "#{agricultor.celular}" mask = "(99)9999-9999" />
                         <h:outputText value = "E-mail: "/>
-                        <p:inputText value = "" />
+                        <p:inputText value = "#{agricultor.usuario.email}" />
                         <h:outputText value = "Senha: " />
-                        <p:password value = "" feedback = "true" />
+                        <p:password value = "#{agricultor.usuario.email}" feedback = "true" />
                         <h:outputText value = "Confirma Senha: " />
-                        <p:password value = "" feedback = "true" />
+                        <p:password value = "#{agricultor.usuario.email}" feedback = "true" />
                     </h:panelGrid>
-                    <p:commandButton value = "Cadastrar" />
-                </h:form>                
+                    <p:commandButton value = "Cadastrar" oncomplete="painel.show()"/>
+                </h:form>
+                <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
+                          resizable="false" modal="true">
+                    <f:facet name = "header">
+                        Deseja Realemnte Fazer o Cadastro
+                    </f:facet>
+                    <p:commandButton value = "Sim" action = "#{ControladorL.adicionar(agricultor)}"/>
+                    <p:commandButton value = "Não" oncomplete = "painel.hide()"/>
+                </p:dialog>
             </p:layoutUnit>
 
         </p:layout>

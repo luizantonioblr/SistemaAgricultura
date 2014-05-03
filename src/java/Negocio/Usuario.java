@@ -3,6 +3,7 @@ package Negocio;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.swing.JOptionPane;
 import sun.misc.BASE64Encoder;
@@ -10,7 +11,9 @@ import sun.misc.BASE64Encoder;
 @Embeddable
 public class Usuario implements Serializable {
 
+    @Column(name = "Email", length = 50)
     private String email;
+    @Column(name = "Senha", length = 50)
     private String senha;
 
     @Deprecated

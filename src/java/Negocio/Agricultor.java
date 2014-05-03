@@ -3,30 +3,37 @@ package Negocio;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
 @ManagedBean(name = "agricultor")
+@SessionScoped
+@Entity
+@Table
 public class Agricultor implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
+    @Column(name = "Nome", length = 50)
     private String nome;
 
     @Embedded
     private Endereco endereco;
+    @Column(name = "Celular", length = 14)
     private String celular;
+    @Column(name = "Titulo", length = 14)
     private String telefone;
 
     @Embedded
     private Usuario usuario;
-    
-    List<Cultivo> listaCultivo = null;
 
+    //List<Cultivo> listaCultivo = null;
     @Deprecated
     public Agricultor() {
     }
@@ -88,17 +95,16 @@ public class Agricultor implements Serializable {
         this.usuario = usuario;
     }
 
-    public List<Cultivo> getListaCultivo() {
-        return listaCultivo;
-    }
+    /*public List<Cultivo> getListaCultivo() {
+     return listaCultivo;
+     }
 
-    public void setListaCultivo(List<Cultivo> listaCultivo) {
-        this.listaCultivo = listaCultivo;
-    }
+     public void setListaCultivo(List<Cultivo> listaCultivo) {
+     this.listaCultivo = listaCultivo;
+     }
 
-    @Override
-    public String toString() {
-        return "Agricultor{" + "nome=" + nome + ", endereco=" + endereco + ", telefone1=" + celular + ", telefone2=" + telefone + ", listaCultivo=" + listaCultivo + '}';
-    }
-
+     @Override
+     public String toString() {
+     return "Agricultor{" + "nome=" + nome + ", endereco=" + endereco + ", telefone1=" + celular + ", telefone2=" + telefone + ", listaCultivo=" + listaCultivo + '}';
+     }*/
 }

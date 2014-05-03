@@ -1,16 +1,23 @@
 package Negocio;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Endereco implements Serializable {
 
+    @Column(name = "Estado", length = 30)
     private String estado;
+    @Column(name = "Cidade", length = 30)
     private String cidade;
+    @Column(name = "Bairro", length = 30)
     private String bairro;
+    @Column(name = "Logradouro", length = 150)
     private String logradouro;
+    @Column(name = "Numero", length = 5)
     private String numero;
+    @Column(name = "CEP", length = 12)
     private String cep;
 
     @Deprecated
