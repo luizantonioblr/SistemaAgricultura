@@ -18,7 +18,7 @@
                     <p:inputText value = "" />
                     <h:outputText value = " Senha : " />
                     <p:password value = "" />
-                    <p:commandButton value = "Entrar" oncomplete = "location.href='Menu.xhtml'"/>
+                    <p:commandButton value = "Entrar" oncomplete = "location.href='MenuPrincipal.xhtml'"/>
                 </h:form>
             </p:layoutUnit>
 
@@ -41,9 +41,11 @@
                         <h:outputText value = "E-mail: "/>
                         <p:inputText value = "#{agricultor.usuario.email}" />
                         <h:outputText value = "Senha: " />
-                        <p:password value = "#{agricultor.usuario.email}" feedback = "true" />
+                        <p:password value = "#{agricultor.usuario.senha}" feedback = "true">
+                            <f:validateLength minimum = "8" />
+                        </p:password>
                         <h:outputText value = "Confirma Senha: " />
-                        <p:password value = "#{agricultor.usuario.email}" feedback = "true" />
+                        <p:password value = "#{agricultor.usuario.senha}" feedback = "true" />
                     </h:panelGrid>
                     <p:commandButton value = "Cadastrar" oncomplete="painel.show()"/>
                 </h:form>

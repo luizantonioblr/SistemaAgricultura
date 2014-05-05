@@ -27,7 +27,7 @@ public class Agricultor implements Serializable {
     private Endereco endereco;
     @Column(name = "Celular", length = 14)
     private String celular;
-    @Column(name = "Titulo", length = 14)
+    @Column(name = "Telefone", length = 14)
     private String telefone;
 
     @Embedded
