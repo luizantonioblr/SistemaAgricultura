@@ -24,12 +24,12 @@ public class RepositorioImplementacaoCultivoDB implements RepositorioInterfaceCu
 
     @Override
     public Cultivo recuperar(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Cultivo) DaoManagerHiber.recover("from cultivo where id =" + id).get(0);
     }
 
     @Override
     public List<Cultivo> recuperarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Cultivo>) DaoManagerHiber.recover("from Cultivo");
     }
 
 }

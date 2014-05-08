@@ -36,9 +36,9 @@ public class Servico {
         this.etapa = etapa;
     }
 
-    @Override
-    public String toString() {
-        return "Servico{" + "nome=" + nome + ", etapa=" + etapa + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Servico{" + "nome=" + nome + ", etapa=" + etapa + '}';
+//    }
 
 }

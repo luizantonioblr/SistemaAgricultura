@@ -5,7 +5,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.swing.JOptionPane;
 import sun.misc.BASE64Encoder;
 
 @Embeddable
@@ -40,7 +39,6 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-
     }
 
     public static String encripta(String senha) {
@@ -51,8 +49,7 @@ public class Usuario implements Serializable {
 
             return encoder.encode(digest.digest());
         } catch (NoSuchAlgorithmException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-            return senha;
+            throw new IllegalArgumentException (e.getMessage());
         }
     }
 

@@ -1,10 +1,16 @@
 package Negocio;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 public class ExecucaoServico {
 
     private Servico servico;
     private Periodo periodo;
+    @Column(name = "Custo", length = 5)
     private double custo;
+    @Enumerated(EnumType.STRING)
     private Equipamentos equipamentos;
 
     @Deprecated
@@ -50,9 +56,8 @@ public class ExecucaoServico {
         this.equipamentos = equipamentos;
     }
 
-    @Override
-    public String toString() {
-        return "ExecucaoServico{" + "servico=" + servico + ", periodo=" + periodo + ", custo=" + custo + '}';
-    }
-
+//    @Override
+//    public String toString() {
+//        return "ExecucaoServico{" + "servico=" + servico + ", periodo=" + periodo + ", custo=" + custo + '}';
+//    }
 }

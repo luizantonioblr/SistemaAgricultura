@@ -8,7 +8,7 @@ public class RepositorioImplementacaoAgricultorDB implements RepositorioInterfac
 
     @Override
     public Agricultor recuperar(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Agricultor) DaoManagerHiber.recover("from agricultor where id =" + id ).get(0);
     }
 
     @Override

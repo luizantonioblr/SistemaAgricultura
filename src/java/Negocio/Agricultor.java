@@ -1,7 +1,6 @@
 package Negocio;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
@@ -9,12 +8,10 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @ManagedBean(name = "agricultor")
 @SessionScoped
 @Entity
-@Table
 public class Agricultor implements Serializable {
 
     @Id
@@ -31,20 +28,23 @@ public class Agricultor implements Serializable {
     private String telefone;
 
     @Embedded
-    private Usuario usuario;
+    private Usuario usuario = new Usuario();
 
     //List<Cultivo> listaCultivo = null;
     @Deprecated
     public Agricultor() {
     }
 
-    public Agricultor(Long id, String nome, Endereco endereco, String celular, String telefone, Usuario usuario) {
-        this.id = id;
+    public Agricultor(String nome, Endereco endereco, String celular, String telefone, Usuario usuario) {
         this.nome = nome;
         this.endereco = endereco;
         this.celular = celular;
         this.telefone = telefone;
         this.usuario = usuario;
+    }
+
+    public Agricultor(String nome, Endereco endereco, String celular, String telefone, String email, String senha) {
+        this(nome, endereco, celular, telefone, new Usuario(email, senha));
     }
 
     public Long getId() {
@@ -93,6 +93,22 @@ public class Agricultor implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public void setSenha(String senha) {
+        this.usuario.setSenha(senha);
+    }
+
+    public String getSenha() {
+        return this.usuario.getSenha();
+    }
+
+    public void setEmail(String email) {
+        this.usuario.setEmail(email);
+    }
+
+    public String getEmail() {
+        return this.usuario.getEmail();
     }
 
     /*public List<Cultivo> getListaCultivo() {

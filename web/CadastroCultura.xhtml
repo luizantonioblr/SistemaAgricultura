@@ -5,34 +5,37 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastrar Cultura</title>
-    </h:head>
+    </h:head>    
     <h:body>
+       <ui:include src = "Menu.xhtml"/>    
+        <p:growl id="gro2" sticky="false" life="4000"/>
+        <center>
+            <h:form id="form">
+                <p:layoutUnit position = "center" style = "width: 450px">
 
-        <ui:include src = "Menu.xhtml"/>
-
-        <p:layoutUnit position = "center" style = "width: 450px">
-            <h:form>
-                <h3>Cadastrar Cultura</h3>
-                <p:panelGrid columns = "2">
-                    <h:outputText value = "Nome da Cultura: "/>
-                    <p:inputText value = ""/>
-                    <h:outputText value = "Area: "/>
-                    <p:inputText value = "" />
-                    <h:outputText value = "Local: "/>
-                    <p:inputText value = "" />
-                </p:panelGrid>
-                <p:commandButton value = "Cadastrar Cultura" oncomplete = "painel.show()"/>
-                <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
-                          resizable="false" modal="true">
-                    <f:facet name = "header">
-                        Deseja Realemnte Fazer o Cadastro da Cultura
-                    </f:facet>
-                    <p:commandButton value = "Sim" action = "#{ControladorL.adicionar(agricultor)}"/>
-                    <p:commandButton value = "Não" oncomplete = "painel.hide()"/>
-                </p:dialog>
-            </h:form>
-        </p:layoutUnit>
-
+                    <h3>Cadastrar Cultura</h3>
+                    <p:panelGrid columns = "2">
+                        <h:outputText value = "Nome da Cultura: "/>
+                        <p:inputText value = "#{cultivo.cultura}"/>
+                        <h:outputText value = "Area: "/>
+                        <p:inputText value = "#{cultivo.area}" />
+                        <h:outputText value = "Local: "/>
+                        <p:inputText value = "#{cultivo.localizacao}" />
+                    </p:panelGrid>
+                    <p:commandButton value = "Cadastrar Cultura" oncomplete = "painel.show()"/>
+                    <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
+                              resizable="false" modal="true">
+                        <f:facet name = "header">
+                            Deseja Realmente Fazer o Cadastro da Cultura
+                        </f:facet>
+                        <div style="text-align: center;">
+                            <p:commandButton value = "Sim" action = "#{ControladorC.adicionar(cultivo)}" oncomplete="painel.hide()"/>
+                            <p:commandButton value = "Não" oncomplete = "painel.hide()"/>
+                        </div>
+                    </p:dialog>
+                </p:layoutUnit>
+            </h:form>    
+        </center>
     </h:body>
 </html>
 

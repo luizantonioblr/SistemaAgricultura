@@ -4,43 +4,41 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @ManagedBean(name = "cultivo")
-@SessionScoped
+@RequestScoped
 @Entity
-@Table
 public class Cultivo implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
-    @Column(name = "Nome da Cultura", length = 25)
-    private String cultura;
+    @Column(name = "NomeDaCultura", length = 25)
+    private String Cultura;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInicio;
     @Column(name = "Area", length = 10)
     private double area;
-    @Column(name = "Local", length = 25)
-    private String local;
+    @Column(name = "Localizacao", length = 25)
+    private String localizacao;
     //private List<ExecucaoServico> execucoes = null;
 
     @Deprecated
     public Cultivo() {
     }
 
-    public Cultivo(Long id, String cultura, Date dataInicio, double area, String local) {
+    public Cultivo(Long id, String cultura, Date dataInicio, double area, String localizacao) {
         this.id = id;
-        this.cultura = cultura;
+        this.Cultura = cultura;
         this.dataInicio = dataInicio;
         this.area = area;
-        this.local = local;
+        this.localizacao = localizacao;
     }
 
     public Long getId() {
@@ -48,11 +46,11 @@ public class Cultivo implements Serializable {
     }
 
     public String getCultura() {
-        return cultura;
+        return Cultura;
     }
 
     public void setCultura(String cultura) {
-        this.cultura = cultura;
+        this.Cultura = cultura;
     }
 
     public Date getDataInicio() {
@@ -71,12 +69,12 @@ public class Cultivo implements Serializable {
         this.area = area;
     }
 
-    public String getLocal() {
-        return local;
+    public String getLocalizacao() {
+        return localizacao;
     }
 
-    public void setLocal(String local) {
-        this.local = local;
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 
     /*public List<ExecucaoServico> getExecucoes() {
@@ -86,15 +84,15 @@ public class Cultivo implements Serializable {
      public void setExecucoes(List<ExecucaoServico> execucoes) {
      this.execucoes = execucoes;
      }*/
-    @Override
-    public String toString() {
-        String r = "Cultivo{" + "cultura=" + cultura + ", dataInicio=" + dataInicio + ", area=" + area + ", local=" + local + ", execucoes=";
-
-        /*for (ExecucaoServico es : execucoes) {
-         r = r + es;
-         }*/
-        r = r + "}";
-
-        return r;
-    }
+//    @Override
+//    public String toString() {
+//        String r = "Cultivo{" + "cultura=" + cultura + ", dataInicio=" + dataInicio + ", area=" + area + ", local=" + localizacao + ", execucoes=";
+//
+//        /*for (ExecucaoServico es : execucoes) {
+//         r = r + es;
+//         }*/
+//        r = r + "}";
+//
+//        return r;
+//    }
 }

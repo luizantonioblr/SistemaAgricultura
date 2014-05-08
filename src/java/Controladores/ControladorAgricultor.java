@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-@ManagedBean(name = "ControladorL")
+@ManagedBean(name = "ControladorA")
 @SessionScoped
 public class ControladorAgricultor {
 
