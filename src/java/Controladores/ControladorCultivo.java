@@ -23,11 +23,13 @@ public class ControladorCultivo {
     public String adicionar(Cultivo cultivo) {
         this.cultivo.adiconar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getCultura() + " Foi cadastrado com Sucesso!", "Mensagem"));
-        return "Menu.xhtml";
+        return "MenuPrincipal.xhtml";
     }
 
-    public void deletar(Cultivo cultivo) {
+    public String deletar(Cultivo cultivo) {
         this.cultivo.deletar(cultivo);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getCultura() + " Foi Deletado com Sucesso!", "Mensagem"));
+        return "MostrarTodasCulturas.xhtml";
     }
 
     public void atualizar(Cultivo cultivo) {

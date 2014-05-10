@@ -10,18 +10,17 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:growl id="gro" sticky="false" life="4000" />
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true" style = "float: right">
 
-                        <h:outputText value = "Login : " />
-                        <p:inputText value = "" />
-                        <h:outputText value = " Senha : " />
-                        <p:password value = "" />
-                        <p:commandButton value = "Entrar" oncomplete = "location.href='MenuPrincipal.xhtml'"/>
+                    <h:outputText value = "Login : " />
+                    <p:inputText value = "" />
+                    <h:outputText value = " Senha : " />
+                    <p:password value = "" />
+                    <p:commandButton value = "Entrar" oncomplete = "location.href='MenuPrincipal.xhtml'"/>
 
-                    </p:layoutUnit>
+                </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="610"  collapsible="true">
                     <h:graphicImage library="img" name="PorDoSol.JPG" height="430" width="600"/>

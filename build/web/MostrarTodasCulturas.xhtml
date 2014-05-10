@@ -11,7 +11,7 @@
         <ui:include src = "Menu.xhtml"/>
         <center>
             <h:form>
-                <p:dataTable id="tabela1" paginator="true" rows="10" rowsPerPageTemplate="5,10,15" value = "#{ControladorC.recuperarTodos()}"
+                <p:dataTable id="tabela1" paginator="true" rows="10" rowsPerPageTemplate="5,10" value = "#{ControladorC.recuperarTodos()}"
                              var = "item" rowKey = "#{item.id}" selection="#{ControladorC.selectedC}" selectionMode="single">
                     <f:facet name = "header">
                         Todos Cultivos Cadastrados
@@ -28,10 +28,16 @@
                         </f:facet>
                         <h:outputText value = "#{item.cultura}"/>
                     </p:column>
+                    <p:column>
+                        <f:facet name = "hader">
+                            Data de Inicio
+                        </f:facet>
+                        <h:outputText value = "#{item.dataInicio}" />
+                    </p:column>
                 </p:dataTable>
-                <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()"/>
+                <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()" update="dial"/>
                 <p:commandButton value = "Atualizar Cultivo"/>
-                <p:commandButton value = "Ver o Cultivo"/>
+                <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()"/>
 
                 <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
                           resizable="false" modal="true">
@@ -43,6 +49,28 @@
                         <p:commandButton value = "Não" oncomplete = "painel.hide()"/>
                     </div>
                 </p:dialog>
+                <p:dialog id="dial1" appendToBody="true" visible="false" widgetVar="painel1"
+                          resizable="false" modal="true">
+
+                    <f:facet name = "header">
+                        Informações do Cultivo
+                    </f:facet>
+
+                    <h:panelGrid columns="2">
+                        <h:outputText value = "Nome da Cultura" />
+                        <h:outputText value = "#{cultivo.cultura}" />
+                        <h:outputText value = "Data de Inicio" />
+                        <h:outputText value = "#{cultivo.dataInicio}" />
+                        <h:outputText value = "Local onde esta Plantado o cultivo" />
+                        <h:outputText value = "#{cultivo.localizacao}" />
+                        <h:outputText value = "Quantidade de Hectares" />
+                        <h:outputText value = "#{cultivo.area}" />
+                    </h:panelGrid>
+                    <div style="text-align: center;">
+                        <p:commandButton value = "Fechar" oncomplete = "painel1.hide()" />
+                    </div>
+                </p:dialog>
+
             </h:form>
         </center>
     </h:body>
