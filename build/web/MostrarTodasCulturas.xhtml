@@ -28,16 +28,16 @@
                         </f:facet>
                         <h:outputText value = "#{item.cultura}"/>
                     </p:column>
-                    <p:column>
-                        <f:facet name = "hader">
-                            Data de Inicio
-                        </f:facet>
-                        <h:outputText value = "#{item.dataInicio}" />
-                    </p:column>
+                    <!--                    <p:column>
+                                            <f:facet name = "hader">
+                                                Data de Inicio
+                                            </f:facet>
+                                            <h:outputText value = "#{item.dataInicio}" />
+                                        </p:column>-->
                 </p:dataTable>
-                <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()" update="dial"/>
+                <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()"/>
                 <p:commandButton value = "Atualizar Cultivo"/>
-                <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()"/>
+                <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()" update = "dial1"/>
 
                 <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
                           resizable="false" modal="true">
@@ -45,7 +45,8 @@
                         Deseja Realmente Deletar o Cultivo
                     </f:facet>
                     <div style="text-align: center;">
-                        <p:commandButton value = "Sim" action = "#{ControladorC.deletar(ControladorC.selectedC)}" oncomplete="painel.hide()"/>
+                        <p:commandButton value = "Sim" action = "#{ControladorC.deletar(ControladorC.selectedC)}" oncomplete="painel.hide()"
+                                         update = "tabela1"/>
                         <p:commandButton value = "Não" oncomplete = "painel.hide()"/>
                     </div>
                 </p:dialog>

@@ -83,16 +83,16 @@ public class Cultivo implements Serializable {
 
      public void setExecucoes(List<ExecucaoServico> execucoes) {
      this.execucoes = execucoes;
+     }
+     @Override
+     public String toString() {
+     String r = "Cultivo{" + "cultura=" + cultura + ", dataInicio=" + dataInicio + ", area=" + area + ", local=" + localizacao + ", execucoes=";
+
+     for (ExecucaoServico es : execucoes) {
+     r = r + es;
+     }
+     r = r + "}";
+
+     return r;
      }*/
-//    @Override
-//    public String toString() {
-//        String r = "Cultivo{" + "cultura=" + cultura + ", dataInicio=" + dataInicio + ", area=" + area + ", local=" + localizacao + ", execucoes=";
-//
-//        /*for (ExecucaoServico es : execucoes) {
-//         r = r + es;
-//         }*/
-//        r = r + "}";
-//
-//        return r;
-//    }
 }
