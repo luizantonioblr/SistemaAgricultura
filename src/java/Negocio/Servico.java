@@ -5,7 +5,7 @@ import javax.persistence.Enumerated;
 
 public class Servico {
 
-    private String nome;
+    private String nomeServico;
     
     @Enumerated(EnumType.STRING)
     private Etapa etapa;
@@ -14,18 +14,18 @@ public class Servico {
     public Servico() {
     }
 
-    public Servico(String nome, Etapa etapa) {
-        this.nome = nome;
+    public Servico(String nomeServico, Etapa etapa) {
+        this.nomeServico = nomeServico;
 
         this.etapa = etapa;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeServico() {
+        return nomeServico;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeServico(String nomeServico) {
+        this.nomeServico = nomeServico;
     }
 
     public Etapa getEtapa() {
