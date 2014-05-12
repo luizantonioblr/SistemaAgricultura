@@ -32,8 +32,9 @@ public class ControladorCultivo {
         return "MostrarTodasCulturas.xhtml";
     }
 
-    public void atualizar(Cultivo cultivo) {
+    public String atualizar(Cultivo cultivo) {
         this.cultivo.atualizar(cultivo);
+        return "MostrarTodasCulturas";
     }
 
     public Cultivo recuperar(Long id) {

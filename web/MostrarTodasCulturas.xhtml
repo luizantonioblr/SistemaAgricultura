@@ -36,7 +36,7 @@
                                         </p:column>-->
                 </p:dataTable>
                 <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()"/>
-                <p:commandButton value = "Atualizar Cultivo"/>
+                <p:commandButton value = "Atualizar Cultivo" oncomplete = "location.href='AtualizarCultura.xhtml'"/>
                 <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()" update = "dial1"/>
 
                 <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"

@@ -21,10 +21,10 @@
                         <p:inputText value = "#{cultivo.area}" />
                         <h:outputText value = "Local: "/>
                         <p:inputText value = "#{cultivo.localizacao}" />
-                        <h:outputText value ="Data de Início: " />
-                        <p:inputMask value="#{cultivo.dataInicio}"  mask="99/99/9999"/>
-                        
-                        
+                        <!--<h:outputText value ="Data de Início: " />-->
+                        <!--<p:inputMask value="#{cultivo.dataInicio}"  mask="99/99/9999"/>-->
+
+
                     </p:panelGrid>
                     <p:commandButton value = "Cadastrar Cultura" oncomplete = "painel.show()"/>
                     <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
