@@ -7,7 +7,7 @@
         <title>Sistema Agricultura</title>
     </h:head>
     <h:body>
-        <p:growl id="gro5" sticky="false" life="4000"/>
+        <p:growl id="gro" sticky="false" life="4000"/>
         <ui:include src = "Menu.xhtml"/>
         <center>
             <h:form>
@@ -35,9 +35,9 @@
                                             <h:outputText value = "#{item.dataInicio}" />
                                         </p:column>-->
                 </p:dataTable>
-                <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()"/>
-                <p:commandButton value = "Atualizar Cultivo" oncomplete = "location.href='AtualizarCultura.xhtml'"/>
-                <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()" update = "dial1"/>
+                <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()" icon = "ui-icon-trash"/>
+                <p:commandButton value = "Atualizar Cultivo" oncomplete = "location.href='AtualizarCultura.xhtml'" icon = "ui-icon-pencil"/>
+                <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()" update = "dial1" icon = "ui-icon-search"/>
 
                 <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
                           resizable="false" modal="true">
@@ -58,17 +58,17 @@
                     </f:facet>
 
                     <h:panelGrid columns="2">
-                        <h:outputText value = "Nome da Cultura" />
-                        <h:outputText value = "#{cultivo.cultura}" />
-                        <h:outputText value = "Data de Inicio" />
-                        <h:outputText value = "#{cultivo.dataInicio}" />
-                        <h:outputText value = "Local onde esta Plantado o cultivo" />
-                        <h:outputText value = "#{cultivo.localizacao}" />
-                        <h:outputText value = "Quantidade de Hectares" />
-                        <h:outputText value = "#{cultivo.area}" />
+                        <h:outputText value = "Nome da Cultura: " />
+                        <h:outputText value = "#{ControladorC.selectedC.cultura}" />
+                        <h:outputText value = "Data de Inicio: " />
+                        <h:outputText value = "#{ControladorC.selectedC.dataInicio}" />
+                        <h:outputText value = "Local onde esta Plantado o cultivo: " />
+                        <h:outputText value = "#{ControladorC.selectedC.localizacao}" />
+                        <h:outputText value = "Quantidade de Hectares: " />
+                        <h:outputText value = "#{ControladorC.selectedC.area}" />
                     </h:panelGrid>
                     <div style="text-align: center;">
-                        <p:commandButton value = "Fechar" oncomplete = "painel1.hide()" />
+                        <p:commandButton value = "Fechar" oncomplete = "painel1.hide()" icon = "ui-icon-closethick"/>
                     </div>
                 </p:dialog>
 

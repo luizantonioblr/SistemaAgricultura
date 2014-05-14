@@ -9,38 +9,34 @@
         <title>Atualizar Cultura</title>
     </h:head>
     <h:body>
-
-        <p:growl id="gro1" sticky="false" life="4000"/>
-        <ui:include src = "Menu.xhtml"/> 
         <center>
             <h:form id="form7">
-
                 <p:layoutUnit position = "center" style = "width: 450px">
-                   
 
-                    <h3>Atualizar Cultura</h3>
+                    <h3>Cadastrar Cultura</h3>                    
+
                     <p:panelGrid columns = "2">
 
                         <h:outputText value="Nome da Cultura:"/>
                         <p:inputText value="#{ControladorC.selectedC.cultura}"/>
-
                         <h:outputText value="Area:"/>
                         <p:inputText value="#{ControladorC.selectedC.area}"/>
-
                         <h:outputText value="Local:"/>
                         <p:inputText value="#{ControladorC.selectedC.localizacao}"/>
 
                     </p:panelGrid>
 
-                    <p:commandButton value="Atualizar" oncomplete="painel.show()"/> 
+                    <p:commandButton value="Atualizar" oncomplete="painel2.show()"/> 
 
-                    <p:dialog id="dial" appendToBody="true" modal="true" closable="false" resizable="false" widgetVar="painel">
+                    <p:dialog id="dial" appendToBody="true" modal="true" closable="false" resizable="false" widgetVar="painel2">
+
                         <f:facet name="header">
                             Deseja Realmente atualizar a Cultura
                         </f:facet>
+
                         <div style="text-align: center;">
-                            <p:commandButton value="sim" action="#{ControladorC.atualizar(ControladorC.selectedC)}" oncomplete="painel.hide()"/>
-                            <p:commandButton value="não" oncomplete="painel.hide()"/>
+                            <p:commandButton value="Sim" action="#{ControladorC.atualizar(ControladorC.selectedC)}" oncomplete="painel2.hide()"/>
+                            <p:commandButton value="Não" oncomplete="painel2.hide()"/>
                         </div>
                     </p:dialog>
                 </p:layoutUnit>
