@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import sun.misc.BASE64Encoder;
 
+
 @Embeddable
 public class Usuario implements Serializable {
 
@@ -49,7 +50,7 @@ public class Usuario implements Serializable {
 
             return encoder.encode(digest.digest());
         } catch (NoSuchAlgorithmException e) {
-            throw new IllegalArgumentException (e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 

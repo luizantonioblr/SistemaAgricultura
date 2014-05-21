@@ -1,12 +1,32 @@
 package Negocio;
 
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-public class Servico {
+/**
+ *
+ * @author Sherlle Silva
+ */
+@ManagedBean(name = "servico")
+@RequestScoped
+@Entity
 
+public class Servico implements Serializable {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "NomeServico", length = 15)
     private String nomeServico;
-    
+
     @Enumerated(EnumType.STRING)
     private Etapa etapa;
 
@@ -36,9 +56,11 @@ public class Servico {
         this.etapa = etapa;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Servico{" + "nome=" + nome + ", etapa=" + etapa + '}';
-//    }
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
