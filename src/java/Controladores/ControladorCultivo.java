@@ -23,7 +23,7 @@ public class ControladorCultivo {
     public String adicionar(Cultivo cultivo) {
         this.cultivo.adiconar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getCultura() + " Foi cadastrado com Sucesso!", "Mensagem"));
-        return "MostrarTodasCulturas.xhtml";
+        return "MenuPrincipal.xhtml";
     }
 
     public String deletar(Cultivo cultivo) {
