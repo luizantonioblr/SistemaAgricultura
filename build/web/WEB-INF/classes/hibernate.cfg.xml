@@ -11,5 +11,6 @@
     <mapping class="Negocio.Agricultor"/>
     <mapping class="Negocio.Cultivo"/>
     <mapping class="Negocio.Servico"/>
+    <mapping class="Negocio.ExecurcaoServico"/>
   </session-factory>
 </hibernate-configuration>

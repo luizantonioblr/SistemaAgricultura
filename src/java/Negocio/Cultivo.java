@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
 @ManagedBean(name = "cultivo")
@@ -19,23 +20,29 @@ public class Cultivo implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(name = "NomeDaCultura", length = 25)
-    private String Cultura;
+
+    @Column(name = "Nome", length = 25)
+    private String nome;
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInicio;
+
     @Column(name = "Area", length = 10)
     private double area;
+
     @Column(name = "Localizacao", length = 25)
     private String localizacao;
-    //private List<ExecucaoServico> execucoes = null;
+
+//    @ManyToOne
+//    private List<ExecurcaoServico> execurcoes = null;
 
     @Deprecated
     public Cultivo() {
     }
 
-    public Cultivo(Long id, String cultura, Date dataInicio, double area, String localizacao) {
+    public Cultivo(Long id, String nome, Date dataInicio, double area, String localizacao) {
         this.id = id;
-        this.Cultura = cultura;
+        this.nome = nome;
         this.dataInicio = dataInicio;
         this.area = area;
         this.localizacao = localizacao;
@@ -45,12 +52,12 @@ public class Cultivo implements Serializable {
         return id;
     }
 
-    public String getCultura() {
-        return Cultura;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCultura(String cultura) {
-        this.Cultura = cultura;
+    public void setNome(String cultura) {
+        this.nome = cultura;
     }
 
     public Date getDataInicio() {
@@ -77,22 +84,12 @@ public class Cultivo implements Serializable {
         this.localizacao = localizacao;
     }
 
-    /*public List<ExecucaoServico> getExecucoes() {
-     return execucoes;
-     }
+//    public List<ExecurcaoServico> getExecurcoes() {
+//        return execurcoes;
+//    }
+//
+//    public void setExecurcoes(List<ExecurcaoServico> execurcoes) {
+//        this.execurcoes = execurcoes;
+//    }
 
-     public void setExecucoes(List<ExecucaoServico> execucoes) {
-     this.execucoes = execucoes;
-     }
-     @Override
-     public String toString() {
-     String r = "Cultivo{" + "cultura=" + cultura + ", dataInicio=" + dataInicio + ", area=" + area + ", local=" + localizacao + ", execucoes=";
-
-     for (ExecucaoServico es : execucoes) {
-     r = r + es;
-     }
-     r = r + "}";
-
-     return r;
-     }*/
 }

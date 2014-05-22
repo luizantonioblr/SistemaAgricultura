@@ -22,7 +22,7 @@ public class ControladorServico {
 
     public String adicionar(Servico servico) {
         this.servicos.adicionar(servico);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Serviço " + servico.getNomeServico()+ " Foi adicionado com Sucesso!", "Mensagem"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Serviço " + servico.getNome()+ " Foi adicionado com Sucesso!", "Mensagem"));
         return "Menu.xhtml";
     }
 

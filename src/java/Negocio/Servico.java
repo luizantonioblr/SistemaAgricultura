@@ -10,10 +10,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- *
- * @author Sherlle Silva
- */
 @ManagedBean(name = "servico")
 @RequestScoped
 @Entity
@@ -24,8 +20,8 @@ public class Servico implements Serializable {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "NomeServico", length = 15)
-    private String nomeServico;
+    @Column(name = "Nome", length = 15)
+    private String nome;
 
     @Enumerated(EnumType.STRING)
     private Etapa etapa;
@@ -34,18 +30,17 @@ public class Servico implements Serializable {
     public Servico() {
     }
 
-    public Servico(String nomeServico, Etapa etapa) {
-        this.nomeServico = nomeServico;
-
+    public Servico(String nome, Etapa etapa) {
+        this.nome = nome;
         this.etapa = etapa;
     }
 
-    public String getNomeServico() {
-        return nomeServico;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeServico(String nomeServico) {
-        this.nomeServico = nomeServico;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Etapa getEtapa() {

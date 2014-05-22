@@ -13,6 +13,7 @@ public class Usuario implements Serializable {
 
     @Column(name = "Email", length = 50)
     private String email;
+    
     @Column(name = "Senha", length = 50)
     private String senha;
 
