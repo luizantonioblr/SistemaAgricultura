@@ -2,7 +2,7 @@ package Negocio;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @ManagedBean(name = "agricultor")
-@SessionScoped
+@RequestScoped
 @Entity
 public class Agricultor implements Serializable {
 

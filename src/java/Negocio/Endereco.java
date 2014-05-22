@@ -9,19 +9,19 @@ public class Endereco implements Serializable {
 
     @Column(name = "Estado", length = 30)
     private String estado;
-    
+
     @Column(name = "Cidade", length = 30)
     private String cidade;
-    
+
     @Column(name = "Bairro", length = 30)
     private String bairro;
-    
+
     @Column(name = "Logradouro", length = 150)
     private String logradouro;
-    
+
     @Column(name = "Numero", length = 5)
     private String numero;
-    
+
     @Column(name = "CEP", length = 12)
     private String cep;
 
@@ -85,10 +85,5 @@ public class Endereco implements Serializable {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
-//    @Override
-//    public String toString() {
-//        return "Endereco{" + "estado=" + estado + ", cidade=" + cidade + ", bairro=" + bairro + ", logradouro=" + logradouro + ", numero=" + numero + ", cep=" + cep + '}';
-//    }
 
 }

@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @ManagedBean(name = "servico")
 @RequestScoped
 @Entity
-
 public class Servico implements Serializable {
 
     @Id
