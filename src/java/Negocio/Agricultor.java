@@ -1,6 +1,8 @@
 package Negocio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
@@ -8,6 +10,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @ManagedBean(name = "agricultor")
 @RequestScoped
@@ -33,7 +36,8 @@ public class Agricultor implements Serializable {
     @Embedded
     private Usuario usuario = new Usuario();
 
-    //List<Cultivo> listaCultivo = null;
+    @OneToMany
+    List<Cultivo> listaCultivo = new ArrayList<Cultivo>();
     
     @Deprecated
     public Agricultor() {
@@ -115,11 +119,11 @@ public class Agricultor implements Serializable {
         return this.usuario.getEmail();
     }
 
-    /*public List<Cultivo> getListaCultivo() {
+    public List<Cultivo> getListaCultivo() {
      return listaCultivo;
      }
 
      public void setListaCultivo(List<Cultivo> listaCultivo) {
      this.listaCultivo = listaCultivo;
-     }*/
+     }
 }

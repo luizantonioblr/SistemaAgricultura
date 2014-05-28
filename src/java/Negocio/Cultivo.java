@@ -1,6 +1,7 @@
 package Negocio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -9,7 +10,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @ManagedBean(name = "cultivo")
 @RequestScoped
@@ -23,7 +26,7 @@ public class Cultivo implements Serializable {
     @Column(name = "Nome", length = 25)
     private String nome;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date dataInicio;
 
     @Column(name = "Area", length = 10)
@@ -32,17 +35,16 @@ public class Cultivo implements Serializable {
     @Column(name = "Localizacao", length = 25)
     private String localizacao;
 
-//    @ManyToOne
-//    private List<ExecurcaoServico> execurcoes = null;
+    @OneToMany
+    private List<ExecurcaoServico> execurcoes = new ArrayList<ExecurcaoServico>();
 
     @Deprecated
     public Cultivo() {
     }
 
-    public Cultivo(Long id, String nome, Date dataInicio, double area, String localizacao) {
+    public Cultivo(Long id, String nome, double area, String localizacao) {
         this.id = id;
         this.nome = nome;
-        this.dataInicio = dataInicio;
         this.area = area;
         this.localizacao = localizacao;
     }
@@ -83,12 +85,11 @@ public class Cultivo implements Serializable {
         this.localizacao = localizacao;
     }
 
-//    public List<ExecurcaoServico> getExecurcoes() {
-//        return execurcoes;
-//    }
-//
-//    public void setExecurcoes(List<ExecurcaoServico> execurcoes) {
-//        this.execurcoes = execurcoes;
-//    }
+    public List<ExecurcaoServico> getExecurcoes() {
+        return execurcoes;
+    }
 
+    public void setExecurcoes(List<ExecurcaoServico> execurcoes) {
+        this.execurcoes = execurcoes;
+    }
 }

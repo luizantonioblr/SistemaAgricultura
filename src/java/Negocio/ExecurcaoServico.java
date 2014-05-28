@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,11 +20,13 @@ public class ExecurcaoServico implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @ManyToOne
     private Servico servico;
 
-    //private Periodo periodo;
+    @Embedded
+    private Periodo periodo;
+
     @Column(name = "Custo", length = 5)
     private double custo;
 
@@ -36,7 +39,7 @@ public class ExecurcaoServico implements Serializable {
 
     public ExecurcaoServico(Servico servico, Periodo periodo, double custo, Equipamentos equipamentos) {
         this.servico = servico;
-        //this.periodo = periodo;
+        this.periodo = periodo;
         this.custo = custo;
         this.equipamentos = equipamentos;
     }
@@ -57,13 +60,14 @@ public class ExecurcaoServico implements Serializable {
         this.servico = servico;
     }
 
-//    public Periodo getPeriodo() {
-//        return periodo;
-//    }
-//
-//    public void setPeriodo(Periodo periodo) {
-//        this.periodo = periodo;
-//    }
+    public Periodo getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(Periodo periodo) {
+        this.periodo = periodo;
+    }
+
     public double getCusto() {
         return custo;
     }

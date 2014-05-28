@@ -1,8 +1,11 @@
 package Negocio;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Embeddable;
 
-public class Periodo {
+@Embeddable
+public class Periodo implements Serializable {
 
     private Date dataInicio;
     private Date dataFim;
