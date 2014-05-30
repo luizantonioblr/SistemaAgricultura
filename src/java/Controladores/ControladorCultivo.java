@@ -21,6 +21,16 @@ public class ControladorCultivo {
     }
 
     public String adicionar(Cultivo cultivo) {
+        if (cultivo.getNome().equals("") || cultivo.getNome() == null) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o Nome!", ""));
+            return "";
+        } else if (cultivo.getLocalizacao().equals("") || cultivo.getLocalizacao() == null) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o Local!", ""));
+            return "";
+        } else if (cultivo.getArea() == 0.0) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite a Area!", ""));
+            return "";
+        }
         this.cultivo.adiconar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getNome() + " Foi cadastrado com Sucesso!", "Mensagem"));
         return "MenuPrincipal.xhtml";
@@ -33,6 +43,16 @@ public class ControladorCultivo {
     }
 
     public String atualizar(Cultivo cultivo) {
+        if (cultivo.getNome().equals("") || cultivo.getNome() == null) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o novo Nome!", ""));
+            return "";
+        } else if (cultivo.getLocalizacao().equals("") || cultivo.getLocalizacao() == null) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o novo Local!", ""));
+            return "";
+        } else if (cultivo.getArea() == 0.0) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite a nova Area", ""));
+            return "";
+        }
         this.cultivo.atualizar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getNome() + " Foi Atualizado com Sucesso!", "Mensagem"));
         return "MostrarTodosCultivos.xhtml";
