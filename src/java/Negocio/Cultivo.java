@@ -2,6 +2,7 @@ package Negocio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -10,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @ManagedBean(name = "cultivo")
 @RequestScoped
@@ -22,6 +25,9 @@ public class Cultivo implements Serializable {
 
     @Column(name = "Nome", length = 25)
     private String nome;
+
+    @Temporal(TemporalType.DATE)
+    private Date dataInicio;
 
     @Column(name = "Area", length = 10)
     private double area;
@@ -53,6 +59,14 @@ public class Cultivo implements Serializable {
 
     public void setNome(String cultura) {
         this.nome = cultura;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
     public double getArea() {

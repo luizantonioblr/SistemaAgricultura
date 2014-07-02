@@ -54,6 +54,15 @@ public class Agricultor implements Serializable {
     public Agricultor(String nome, Endereco endereco, String celular, String telefone, String email, String senha) {
         this(nome, endereco, celular, telefone, new Usuario(email, senha));
     }
+    
+
+    public Agricultor(Long id, String nome, String celular, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.celular = celular;
+        this.telefone = telefone;
+    }
+    
 
     public Long getId() {
         return id;
@@ -73,11 +82,11 @@ public class Agricultor implements Serializable {
 
     public Endereco getEndereco() {
         return endereco;
-    }
+   }
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
-    }
+   }
 
     public String getCelular() {
         return celular;
@@ -95,7 +104,7 @@ public class Agricultor implements Serializable {
         this.telefone = telefone;
     }
 
-    public Usuario getUsuario() {
+   public Usuario getUsuario() {
         return usuario;
     }
 
