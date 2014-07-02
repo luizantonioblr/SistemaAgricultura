@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 @ManagedBean(name = "ExecurcaoServico")
 @RequestScoped
 @Entity
-public class ExecurcaoServico implements Serializable {
+public class ExecucaoServico implements Serializable {
 
     @Id
     @GeneratedValue
@@ -34,10 +34,10 @@ public class ExecurcaoServico implements Serializable {
     private Equipamentos equipamentos;
 
     @Deprecated
-    public ExecurcaoServico() {
+    public ExecucaoServico() {
     }
 
-    public ExecurcaoServico(Servico servico, Periodo periodo, double custo, Equipamentos equipamentos) {
+    public ExecucaoServico(Servico servico, Periodo periodo, double custo, Equipamentos equipamentos) {
         this.servico = servico;
         this.periodo = periodo;
         this.custo = custo;
