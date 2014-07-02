@@ -8,6 +8,7 @@ import javax.persistence.Embeddable;
 import sun.misc.BASE64Encoder;
 
 
+
 @Embeddable
 public class Usuario implements Serializable {
 
@@ -43,16 +44,6 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public static String encripta(String senha) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            digest.update(senha.getBytes());
-            BASE64Encoder encoder = new BASE64Encoder();
-
-            return encoder.encode(digest.digest());
-        } catch (NoSuchAlgorithmException e) {
-            throw new IllegalArgumentException(e.getMessage());
-        }
-    }
+  
 
 }

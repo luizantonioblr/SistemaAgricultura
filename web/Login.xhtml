@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <f:facet name="first">
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
@@ -13,18 +14,26 @@
         </style>
     </h:head>
     <h:body>
+        
         <h:form>
-
+            <c:if test = "#{controladorLogin.loggedIn == true}">
+                <script>
+                    location.href = 'Menu.xhtml';
+                </script>
+            </c:if>
+            
+            <p:growl id="gro" sticky="true" showDetail="true"/>
             <p:layout fullPage="true" >
 
                 <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true">
 
                     <div id = "cabecalho">
                         <h:outputText value = "Login : " />
-                        <p:inputText value = "" />
+                        <p:inputText value = "#{agricultor.usuario.email}" />
                         <h:outputText value = " Senha : " />
-                        <p:password value = "" />
+                        <p:password value = "#{agricultor.usuario.senha}" />
                         <p:commandButton value = "Entrar" oncomplete = "location.href='MenuPrincipal.xhtml'"/>
+                    
                     </div>
 
                     <h1>Sistema Agricultura</h1>
@@ -44,15 +53,16 @@
                             <h:outputText value = "Celular: " />
                             <p:inputMask value = "#{agricultor.celular}" mask = "(99)9999-9999" />
                             <h:outputText value = "E-mail: "/>
-                            <p:inputText value = "#{agricultor.email}" />
+                            <p:inputText value = "#{agricultor.usuario.email}" />
                             <h:outputText value = "Senha: " />
-                            <p:password value = "#{agricultor.senha}" feedback = "true">
+                            <p:password value = "#{agricultor.usuario.senha}" feedback = "true" maxlength="10">
                                 <f:validateLength minimum = "8" />
                             </p:password>
                             <h:outputText value = "Confirma Senha: " />
-                            <p:password value = "#{agricultor.senha}" feedback = "true" />
+                            <p:password value = "#{agricultor.usuario.senha}" feedback = "true"  maxlength="10"/>
                         </h:panelGrid>
-                        <p:commandButton value = "Cadastrar-se" action = "#{controladorA.adicionar(agricultor)}"/>
+                        <p:commandButton value = "Cadastrar-se" action = "#{ControladorA.adicionar(agricultor)}" update="gro"
+                                         oncomplete="location.href='Login.xhtml'"/>
                     </center>
                 </p:layoutUnit>
             </p:layout>
