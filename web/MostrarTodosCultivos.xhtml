@@ -28,15 +28,10 @@
                         </f:facet>
                         <h:outputText value = "#{item.nome}"/>
                     </p:column>
-                    <!--                    <p:column>
-                                            <f:facet name = "hader">
-                                                Data de Inicio
-                                            </f:facet>
-                                            <h:outputText value = "#{item.dataInicio}" />
-                                        </p:column>-->
+
                 </p:dataTable>
                 <p:commandButton value = "Deletar Cultivo" oncomplete = "painel.show()" icon = "ui-icon-trash"/>
-                <p:commandButton value = "Atualizar Cultivo" oncomplete = "location.href='AtualizarCultivo.xhtml'" icon = "ui-icon-pencil"/>
+                <p:commandButton value = "Atualizar Cultivo" oncomplete = "location.href='AtualizarCultivo.xhtml'" icon = "ui-icon-refresh"/>
                 <p:commandButton value = "Ver o Cultivo" oncomplete = "painel1.show()" update = "dial1" icon = "ui-icon-search"/>
 
                 <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel"
@@ -60,8 +55,6 @@
                     <h:panelGrid columns="2">
                         <h:outputText value = "Nome da Cultura: " />
                         <h:outputText value = "#{ControladorC.selectedC.nome}" />
-                        <h:outputText value = "Data de Inicio: " />
-                        <h:outputText value = "#{ControladorC.selectedC.dataInicio}" />
                         <h:outputText value = "Local onde esta Plantado o cultivo: " />
                         <h:outputText value = "#{ControladorC.selectedC.localizacao}" />
                         <h:outputText value = "Quantidade de Hectares: " />
