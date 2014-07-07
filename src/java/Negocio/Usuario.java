@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import sun.misc.BASE64Encoder;
+
 
 
 
@@ -15,7 +15,7 @@ public class Usuario implements Serializable {
     @Column(name = "Email", length = 50)
     private String email;
     
-    @Column(name = "Senha", length = 50)
+    @Column(name = "Senha")
     private String senha;
 
     @Deprecated

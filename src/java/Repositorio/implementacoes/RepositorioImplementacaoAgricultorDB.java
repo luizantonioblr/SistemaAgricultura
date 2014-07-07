@@ -3,6 +3,7 @@ package Repositorio.implementacoes;
 import Negocio.Agricultor;
 import DaoHibernate.DaoManagerHiber;
 import Repositorio.interfaces.RepositorioInterfaceAgricultor;
+import java.util.List;
 
 public class RepositorioImplementacaoAgricultorDB implements RepositorioInterfaceAgricultor {
 
@@ -24,6 +25,9 @@ public class RepositorioImplementacaoAgricultorDB implements RepositorioInterfac
     @Override
     public void atualizar(Agricultor agricultor) {
         DaoManagerHiber.update(agricultor);
+    }
+    public List<Agricultor> recuperarTodos(){
+        return (List<Agricultor>) DaoManagerHiber.recover("from Agricultor");
     }
 
 }
