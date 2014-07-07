@@ -10,71 +10,54 @@
         <title>Cadastrar Etapas</title>
     </h:head>
     <h:body>
-        <ui:include src = "Menu.xhtml"/>    
-        <p:growl id="gro8" sticky="false" life="4000"/>
+        <ui:include src = "Menu.xhtml"/>  
+        <p:growl id="gro4" sticky="false" life="4000"/>
+
+
         <center>
-            <h:form id="form3">
-                <p:dataTable id="tabela" value="#{ControladorC.recuperarTodos()}" var="item" 
-                             rowKey="#{item.nome}" selectionMode="single" selection="#{ControladorC.selectedC}"> 
-
-                    <p:column sortBy="#{item.nome}" filterBy="#{item.nome}">
-                        <f:facet name="header">
-                            Nome da Cultura:
-                        </f:facet>
-                        <h:outputText value="#{item.nome}" />
-                    </p:column>
-                </p:dataTable> <br></br><br></br>
-
-                <p:layoutUnit position = "center" >
-                    <h:form>
-                        <h3>Cadastrar Etapas</h3>
-                        <p:panelGrid columns = "4">
-                            <h:outputLabel for="et" value="Etapas:" />
-                            <h:selectOneMenu id="e" value="#{servico.etapa}" >
-                                <f:selectItem itemLabel="PREPARO DO SOLO" />
-                                <f:selectItem itemLabel="PLANTIO"  />
-                                <f:selectItem itemLabel="TRATOS CULTURAIS" />
-                                <f:selectItem itemLabel="COLHEITA"  />
-                                <f:selectItem itemLabel="COMERCIALIZAÇÃO"  /> 
-                            </h:selectOneMenu>
-                            <p:commandButton value = "Cadastrar Etapa" oncomplete = "painel3.show()"/>
+            <h:form id = "formExe">
+                <p:layoutUnit position = "center" style = "width: 450px">
 
 
-                        </p:panelGrid>
-                        <h3>Cadastrar Serviços</h3>
-                        <p:panelGrid columns = "4">
-                            <h:outputLabel for="et" value="Serviços:" />
-                            <h:selectOneMenu id="e" value="#{servico.nome}" >
-                                <f:selectItem itemLabel=" aaaaaaaaaaaaaaaa" />
-                                <f:selectItem itemLabel=" eeeeeeeeeeeeeeee"  />
-                                <f:selectItem itemLabel="iiiiiiiiiiiiiiii" />
-                                <f:selectItem itemLabel="ooooooooooooooo "  />
-                                <f:selectItem itemLabel="uuuuuuuuuuuuuuuuu"  />
-                            </h:selectOneMenu>
-                            <p:commandButton value = "Cadastrar Serviço" oncomplete = "painel4.show()"/>
-                        </p:panelGrid>
-                        <br></br>
-                        <p:panelGrid columns = "9">
-                            <h:outputText value = "Novo Serviço: "/>
-                            <p:inputText value = "#{servico.nome}"/>
-                            <p:commandButton value = "Cadastrar Novo Serviço" oncomplete = "painel4.show()"/>
-                        </p:panelGrid>
+                    <p:panel header="Selecione as execuções do servirço">
+                        <h:panelGrid columns="2">
+                            <h:outputText value = "Cultivo: " />
+                            <h:outputText value = "#{ControladorC.selectedC.nome}" />
 
-                        <p:dialog id="dial3" appendToBody="true" closable="false" visible="false" widgetVar="painel3"
+                            <h:outputLabel value="Etapas:" />  
+                            <p:selectOneMenu value="#{ControladorES.etapa}"> 
+                                <f:selectItem itemLabel="Selecione" />  
+                                <f:selectItems value="#{ControladorES.etapa}" var="a"  
+                                               itemValue="#{a}" itemLabel="#{a.label}"/> 
+                            </p:selectOneMenu>
+
+                            <h:outputText value = "Serviço:"/>
+                            <p:inputText  value = "#{servico.nome}"/>
+
+
+                            <h:outputText value="Equipamentos:" />  
+                            <p:selectOneMenu value="#{ControladorES.equipamentos}"> 
+                                <f:selectItem itemLabel="Selecione" />  
+                                <f:selectItems value="#{ControladorES.equipamentos}" var="e"  
+                                               itemValue="#{e}" itemLabel="#{e.equi}"/> 
+                            </p:selectOneMenu>
+                        </h:panelGrid>  
+
+                        <p:commandButton value = "Cadastrar" oncomplete = "painel4.show()"/>
+                        <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel4"
                                   resizable="false" modal="true">
                             <f:facet name = "header">
                                 Deseja Realmente Fazer o Cadastro do Serviço?
                             </f:facet>
                             <div style="text-align: center;">
-                                <p:commandButton value = "Sim" action = "#{ControladorS.adicionar(servico)}" oncomplete="painel3.hide()"/>
-                                <p:commandButton value = "NÃO" oncomplete = "painel3.hide()"/>
+                                <p:commandButton value = "Sim" action = "#{ControladorS.adicionar(servico)}" oncomplete="painel4.hide()"/>
+                                <p:commandButton value = "Não" oncomplete = "painel4.hide()"/>
                             </div>
                         </p:dialog>
-                    </h:form>
+                    </p:panel>
+
                 </p:layoutUnit>
-            </h:form>    
+            </h:form>
         </center>
     </h:body>
 </html>
-
-
