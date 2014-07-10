@@ -35,6 +35,6 @@ public class ControladorAgricultor {
         agricultor.getUsuario().setSenha(Criptografia.criptografar(agricultor.getUsuario().getSenha()));
         this.agricultores.adicionar(agricultor);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Agricultor " + agricultor.getNome() + " Foi cadastrado com Sucesso!", "Mensagem"));
-        return "Login.xhtml";
+        return "/Login.xhtml";
     }
 }

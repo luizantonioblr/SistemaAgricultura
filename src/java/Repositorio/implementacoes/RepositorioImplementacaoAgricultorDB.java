@@ -9,7 +9,7 @@ public class RepositorioImplementacaoAgricultorDB implements RepositorioInterfac
 
     @Override
     public Agricultor recuperar(Long id) {
-        return (Agricultor) DaoManagerHiber.recover("from agricultor where id =" + id ).get(0);
+        return (Agricultor) DaoManagerHiber.recover("from agricultor where id =" + id).get(0);
     }
 
     @Override
@@ -26,13 +26,9 @@ public class RepositorioImplementacaoAgricultorDB implements RepositorioInterfac
     public void atualizar(Agricultor agricultor) {
         DaoManagerHiber.update(agricultor);
     }
-    public List<Agricultor> recuperarTodos(){
-        return (List<Agricultor>) DaoManagerHiber.recover("from Agricultor");
-    }
 
-    @Override
     public List<Agricultor> recuperarTodos() {
-         return (List<Agricultor>) DaoManagerHiber.recover("from Agricultor");
+        return (List<Agricultor>) DaoManagerHiber.recover("from Agricultor");
     }
 
 }

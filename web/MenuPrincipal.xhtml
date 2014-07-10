@@ -8,11 +8,17 @@
         <title>Menu Principal</title>
     </h:head>
     <h:body>
+
         <p:growl id="gro3" sticky="false" life="4000"/>
+
         <center>
+
             <h2 align = "center" > Bem-Vindo ao Sistema da Agricultura </h2>
+
             <h:form>
+
                 <p:menubar>
+
                     <p:menuitem value = "Inicio" url = "MenuPrincipal.xhtml" icon="ui-icon-home"/>
                     <p:submenu label = "Agricultor">
                         <p:menuitem value = "Atualizar Conta" url = "AtualizarConta.xhtml"/>
@@ -31,12 +37,17 @@
                     <f:facet name="options">
                         <p:commandButton value = "Sair" icon = "ui-icon-extlink" oncomplete = "location.href='Login.xhtml'"/>
                     </f:facet>
+
                 </p:menubar>
+
                 <p:layoutUnit position="west" size="610" collapsible="true">
                     <h:graphicImage library="img" name="PorDoSol.JPG" height="430" width="800"/>
                 </p:layoutUnit>
+
             </h:form>
+
         </center>
+
     </h:body>
 </html>
 

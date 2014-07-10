@@ -6,13 +6,21 @@
         <title>Atualizar Conta</title>
     </h:head>
     <h:body>
+
         <p:growl id="gro1" sticky="false" life="4000"/>
-        <center>
-            <ui:include src = "Menu.xhtml"/>
-            <p:layoutUnit position = "center" style = "width: 450px">
-                <h:form>
+
+        <ui:include src = "Menu.xhtml"/>
+
+        <h:form>
+
+            <center>        
+
+                <p:layoutUnit position = "center" style = "width: 450px">
+
                     <h3>Atualizar Conta</h3>
+
                     <p:panelGrid id = "coluna" columns = "2">
+
                         <h:outputText value = "Indentificador: " />
                         <h:outputText value = "" />
                         <h:outputText value = "Nome: " />
@@ -33,10 +41,16 @@
                         <p:inputMask value = "" mask = "(99)9999-9999" />
                         <h:outputText value = "Celular: " />
                         <p:inputMask value = "" mask = "(99)9999-9999" />
+
                     </p:panelGrid>
+
                     <p:commandButton value = "Atualizar Conta" />
-                </h:form>
-            </p:layoutUnit>
-        </center>
+
+                </p:layoutUnit>
+
+            </center>
+
+        </h:form>
+
     </h:body>
 </html>
