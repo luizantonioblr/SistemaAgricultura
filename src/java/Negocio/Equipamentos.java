@@ -1,5 +1,22 @@
 package Negocio;
 
 public enum Equipamentos {
-    MANUAL, TRATOR, PUVERIZADOR_COSTAL, CULTIVADOR, ARADO;
+     MANUAL("Manual"),
+    TRATOR("Trator"), 
+    PUVERIZADOR_COSTAL("Puverizador Costal"),
+    CULTIVADOR("Cultivador"),
+    ARADO("Arado");
+
+
+
+private String equi;
+
+    Equipamentos(String equi) {
+        this.equi = equi;
+    }
+
+    public String getEqui() {
+        return equi;
+    }
+
 }

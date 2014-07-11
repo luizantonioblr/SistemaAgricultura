@@ -1,5 +1,6 @@
 package Controladores;
 
+import Negocio.Equipamentos;
 import Negocio.Etapa;
 import Negocio.ExecucaoServico;
 import Repositorio.implementacoes.RepositorioImplementacaoExecucaoServicoBD;
@@ -34,8 +35,10 @@ public class ControladorExecucaoServico {
     
     public Etapa[] getEtapa(){  
         return Etapa.values();  
-    }  
- 
+    } 
+    public Equipamentos[] getEquipamentos(){
+        return Equipamentos.values();
+    } 
 
     public String getMensagem() {
         return Mensagem;
