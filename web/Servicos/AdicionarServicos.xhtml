@@ -10,17 +10,19 @@
         <title>Cadastrar Etapas</title>
     </h:head>
     <h:body>
-        <ui:include src = "Menu.xhtml"/>  
+        <ui:include src = "/Menu.xhtml"/>  
+        
         <p:growl id="gro4" sticky="false" life="4000"/>
-
 
         <center>
             <h:form id = "formExe">
+
                 <p:layoutUnit position = "center" style = "width: 450px">
 
-
                     <p:panel header="Selecione as execuções do servirço">
+
                         <h:panelGrid columns="2">
+
                             <h:outputText value = "Cultivo: " />
                             <h:outputText value = "#{ControladorC.selectedC.nome}" />
 
@@ -34,30 +36,38 @@
                             <h:outputText value = "Serviço:"/>
                             <p:inputText  value = "#{servico.nome}"/>
 
-
                             <h:outputText value="Equipamentos:" />  
-                            <p:selectOneMenu value="#{ControladorES.equipamentos}"> 
+                            <p:selectOneMenu value=""> 
                                 <f:selectItem itemLabel="Selecione" />  
-                                <f:selectItems value="#{ControladorES.equipamentos}" var="e"  
+                                <f:selectItems value="" var="e"  
                                                itemValue="#{e}" itemLabel="#{e.equi}"/> 
                             </p:selectOneMenu>
+
                         </h:panelGrid>  
 
                         <p:commandButton value = "Cadastrar" oncomplete = "painel4.show()"/>
+                        
                         <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel4"
                                   resizable="false" modal="true">
+                        
                             <f:facet name = "header">
                                 Deseja Realmente Fazer o Cadastro do Serviço?
                             </f:facet>
+                            
                             <div style="text-align: center;">
                                 <p:commandButton value = "Sim" action = "#{ControladorS.adicionar(servico)}" oncomplete="painel4.hide()"/>
                                 <p:commandButton value = "Não" oncomplete = "painel4.hide()"/>
                             </div>
+                        
                         </p:dialog>
+
                     </p:panel>
 
                 </p:layoutUnit>
+
             </h:form>
+
         </center>
+
     </h:body>
 </html>

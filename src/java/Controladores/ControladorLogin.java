@@ -1,6 +1,7 @@
 package Controladores;
 
 import Negocio.Agricultor;
+import Negocio.Criptografia;
 import Repositorio.implementacoes.RepositorioImplementacaoAgricultorDB;
 import Repositorio.interfaces.RepositorioInterfaceAgricultor;
 import java.io.Serializable;
@@ -26,8 +27,8 @@ public class ControladorLogin implements Serializable {
     }
 
     public String login(Agricultor agricultor) {
+        agricultor.getUsuario().setSenha(Criptografia.criptografar(agricultor.getUsuario().getSenha()));
         RequestContext context = RequestContext.getCurrentInstance();
-
         if (agricultor.getEmail().equals("") || agricultor.getSenha() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o EMAIL!", ""));
         }
@@ -35,7 +36,7 @@ public class ControladorLogin implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite a senha!", ""));
         }
         if (agricultor.getEmail().equals("") || agricultor.getEmail() == null || agricultor.getSenha().equals("") || agricultor.getSenha() == null) {
-            return "";
+            return null;
         }
         Agricultor s = null;
         List<Agricultor> ls = this.rs.recuperarTodos();
@@ -47,7 +48,7 @@ public class ControladorLogin implements Serializable {
         }
 
         if (s == null) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIAPE nÃ£o cadastrado!", ""));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Email não cadastrado!", ""));
             return "";
         }
         if (agricultor.getEmail().equals(s.getSenha())) {
@@ -61,9 +62,9 @@ public class ControladorLogin implements Serializable {
                 return "";
             }
         }
-
+        loggedIn = true;
         context.addCallbackParam("loggedIn", loggedIn);
-        return null;
+        return "/MenuPrincipal.xhtml";
     }
 
     public boolean getLoggedIn() {
