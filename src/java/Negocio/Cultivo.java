@@ -1,5 +1,6 @@
 package Negocio;
 
+import Converter.AbstractEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +18,7 @@ import javax.persistence.TemporalType;
 @ManagedBean(name = "cultivo")
 @RequestScoped
 @Entity
-public class Cultivo implements Serializable {
+public class Cultivo extends AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue

@@ -23,39 +23,39 @@ public class ControladorCultivo {
     public String adicionar(Cultivo cultivo) {
         if (cultivo.getNome().equals("") || cultivo.getNome() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o Nome!", ""));
-            return "null";
+            return null;
         } else if (cultivo.getLocalizacao().equals("") || cultivo.getLocalizacao() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o Local!", ""));
-            return "null";
+            return null;
         } else if (cultivo.getArea() == 0.0) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite a Area!", ""));
-            return "null";
+            return null;
         }
         this.cultivo.adiconar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getNome() + " Foi cadastrado com Sucesso!", "Mensagem"));
-        return "MenuPrincipal.xhtml";
+        return "/Cultivo/MostrarTodosCultivos.xhtml";
     }
 
     public String deletar(Cultivo cultivo) {
         this.cultivo.deletar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getNome() + " Foi Deletado com Sucesso!", "Mensagem"));
-        return "MostrarTodosCultivos.xhtml";
+        return "/Cultivo/MostrarTodosCultivos.xhtml";
     }
 
     public String atualizar(Cultivo cultivo) {
         if (cultivo.getNome().equals("") || cultivo.getNome() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o novo Nome!", ""));
-            return "";
+            return null;
         } else if (cultivo.getLocalizacao().equals("") || cultivo.getLocalizacao() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o novo Local!", ""));
-            return "";
+            return null;
         } else if (cultivo.getArea() == 0.0) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite a nova Area", ""));
-            return "";
+            return null;
         }
         this.cultivo.atualizar(cultivo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Cultivo " + cultivo.getNome() + " Foi Atualizado com Sucesso!", "Mensagem"));
-        return "MostrarTodosCultivos.xhtml";
+        return "/Cultivo/Correcao.xhtml";
     }
 
     public Cultivo recuperar(Long id) {

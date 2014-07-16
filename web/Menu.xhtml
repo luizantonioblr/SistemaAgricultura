@@ -7,35 +7,44 @@
         <title>Sistema da Agricultura</title>
     </h:head>
     <h:body>
-        <!-- <h:form id="formMenu"> -->
 
-        <p:growl id="gro3" sticky="false" life="4000"/>
+        <c:if test="#{controladorLogin.loggedIn == false}">
+            <script>
+                location.href = "/SistemaAgricultura/faces/Login.xhtml";
+            </script>
+        </c:if>
 
-        <h2 style="text-align: center;"> Bem-Vindo ao Sistema da Agricultura </h2>
+        <h:form id="formMenu"> 
 
-        <p:menubar>
+            <p:growl id="gro3" sticky="false" life="4000"/>
 
-            <p:menuitem value = "Inicio" url = "MenuPrincipal.xhtml" icon="ui-icon-home"/>
-            <p:submenu label = "Agricultor">
-                <p:menuitem value = "Atualizar Conta" url = "AtualizarConta.xhtml"/>
-            </p:submenu>
-            <p:submenu label = "Cultivo">
-                <p:menuitem value = "Cadastrar Cultivo" url = "CadastroCultivo.xhtml"/>
-                <p:menuitem value = "Cultivos Cadastrados" url = "MostrarTodosCultivos.xhtml"/>
-            </p:submenu>
-            <p:submenu label = "Plantio">
-                <p:menuitem value = "Adicionar Serviço" url = "AdicionarServicos.xhtml"/>
-                <p:menuitem value = "Etapas do Plantio" url = "#"/>
-                <p:menuitem value = "Serviços no Plantio" url = "#"/>
-            </p:submenu>
-            <p:menuitem value = "Relatorio" url = "#"/>
-            <p:menuitem value = "Despesas" url = "#"/>
+            <h2 style="text-align: center;"> Bem-Vindo ao Sistema da Agricultura </h2>
 
-            <f:facet name="options">
-                <p:commandButton value = "Sair" icon = "ui-icon-extlink" oncomplete = "location.href='Login.xhtml'"/>
-            </f:facet>
+            <p:menubar>
 
-        </p:menubar>
-        <!--</h:form>-->
+                <p:menuitem value = "Inicio" oncomplete = "location.href='/SistemaAgricultura/faces/MenuPrincipal.xhtml'" icon="ui-icon-home"/>
+                <p:submenu label = "Agricultor">
+                    <p:menuitem value = "Atualizar Conta" oncomplete = "location.href = '/SistemaAgricultura/faces/Agricultor/AtualizarConta.xhtml'"/>
+                </p:submenu>
+                <p:submenu label = "Cultivo">
+                    <p:menuitem value = "Cadastrar Cultivo" oncomplete = "location.href = '/SistemaAgricultura/faces/Cultivo/CadastroCultivo.xhtml'"/>
+                    <p:menuitem value = "Cultivos Cadastrados" oncomplete = "location.href = '/SistemaAgricultura/faces/Cultivo/MostrarTodosCultivos.xhtml'"/>
+                </p:submenu>
+                <p:submenu label = "Plantio">
+                    <p:menuitem value = "Adicionar Serviço" oncomplete = "location.href = '/SistemaAgricultura/faces/Servicos/AdicionarServicos.xhtml'"/>
+                    <p:menuitem value = "Etapas do Plantio" url = "#"/>
+                    <p:menuitem value = "Serviços no Plantio" url = "#"/>
+                </p:submenu>
+                <p:menuitem value = "Relatorio" url = "#"/>
+                <p:menuitem value = "Despesas" url = "#"/>
+
+                <f:facet name="options">
+                    <p:commandButton value = "Sair" icon = "ui-icon-extlink" oncomplete = "location.href='/SistemaAgricultura/faces/Login.xhtml'"/>
+                </f:facet>
+
+            </p:menubar>
+
+        </h:form>
+
     </h:body>
 </html>

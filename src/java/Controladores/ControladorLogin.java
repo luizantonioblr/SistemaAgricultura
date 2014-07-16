@@ -1,6 +1,8 @@
 package Controladores;
 
 import Negocio.Agricultor;
+import Negocio.Criptografia;
+import Negocio.Usuario;
 import Repositorio.implementacoes.RepositorioImplementacaoAgricultorDB;
 import Repositorio.interfaces.RepositorioInterfaceAgricultor;
 import java.io.Serializable;
@@ -25,33 +27,33 @@ public class ControladorLogin implements Serializable {
         rs = new RepositorioImplementacaoAgricultorDB();
     }
 
-    public String login(Agricultor agricultor) {
+    public String login(Usuario agri) {
+        agri.setSenha(Criptografia.criptografar(agri.getSenha()));
         RequestContext context = RequestContext.getCurrentInstance();
-
-        if (agricultor.getEmail().equals("") || agricultor.getSenha() == null) {
+        if (agri.getEmail().equals("") || agri.getEmail() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite o EMAIL!", ""));
         }
-        if (agricultor.getSenha().equals("") || agricultor.getSenha() == null) {
+        if (agri.getSenha().equals("") || agri.getSenha() == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Digite a senha!", ""));
         }
-        if (agricultor.getEmail().equals("") || agricultor.getEmail() == null || agricultor.getSenha().equals("") || agricultor.getSenha() == null) {
-            return "";
+        if (agri.getEmail().equals("") || agri.getEmail() == null || agri.getSenha().equals("") || agri.getSenha() == null) {
+            return null;
         }
         Agricultor s = null;
         List<Agricultor> ls = this.rs.recuperarTodos();
 
         for (int i = 0; i < ls.size(); i++) {
-            if (agricultor.getEmail().equals(ls.get(i).getEmail())) {
+            if (agri.getEmail().equals(ls.get(i).getEmail())) {
                 s = ls.get(i);
             }
         }
 
         if (s == null) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIAPE nÃ£o cadastrado!", ""));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Email não cadastrado!", ""));
             return "";
         }
-        if (agricultor.getEmail().equals(s.getSenha())) {
-            if (agricultor.getSenha().equals(s.getSenha())) {
+        if (agri.getEmail().equals(s.getSenha())) {
+            if (agri.getSenha().equals(s.getSenha())) {
                 loggedIn = true;
                 this.agricultor = s;
                 this.email = s.getEmail();
@@ -61,9 +63,9 @@ public class ControladorLogin implements Serializable {
                 return "";
             }
         }
-
+        loggedIn = true;
         context.addCallbackParam("loggedIn", loggedIn);
-        return null;
+        return "/MenuPrincipal.xhtml";
     }
 
     public boolean getLoggedIn() {
