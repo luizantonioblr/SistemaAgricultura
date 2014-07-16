@@ -29,10 +29,7 @@ public class RepositorioImplementacaoAgricultorDB implements RepositorioInterfac
     public List<Agricultor> recuperarTodos(){
         return (List<Agricultor>) DaoManagerHiber.recover("from Agricultor");
     }
-
-    @Override
-    public List<Agricultor> recuperarTodos() {
-         return (List<Agricultor>) DaoManagerHiber.recover("from Agricultor");
-    }
+    
+    
 
 }

@@ -14,14 +14,14 @@
         </style>
     </h:head>
     <h:body>
-        
+
         <h:form>
             <c:if test = "#{controladorLogin.loggedIn == true}">
                 <script>
                     location.href = 'Menu.xhtml';
                 </script>
             </c:if>
-            
+
             <p:growl id="gro" sticky="true" showDetail="true" life="4000"/>
             <p:layout fullPage="true" >
 
@@ -29,11 +29,13 @@
 
                     <div id = "cabecalho">
                         <h:outputText value = "Login : " />
-                        <p:inputText value = "#{agricultor.usuario.email}" />
+                        <p:inputText value="#{agricultor.usuario.email}">
+
+                        </p:inputText>
                         <h:outputText value = " Senha : " />
                         <p:password value = "#{agricultor.usuario.senha}" />
                         <p:commandButton value = "Entrar" oncomplete = "location.href='MenuPrincipal.xhtml'"/>
-                    
+
                     </div>
 
                     <h1>Sistema Agricultura</h1>
@@ -53,7 +55,17 @@
                             <h:outputText value = "Celular: " />
                             <p:inputMask value = "#{agricultor.celular}" mask = "(99)9999-9999" />
                             <h:outputText value = "E-mail: "/>
-                            <p:inputText value = "#{agricultor.usuario.email}" />
+
+                            <p:inputText id="email" required="true" label="email" 
+                                         requiredMessage="Porfavor Digite seu Email"
+                                         validatorMessage="Email Inválido"
+                                         value="#{agricultor.usuario.email}">
+
+                                <f:validateRegex
+                                    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+                            </p:inputText>
+
                             <h:outputText value = "Senha: " />
                             <p:password value = "#{agricultor.usuario.senha}" feedback = "true" maxlength="10">
                                 <f:validateLength minimum = "8" />

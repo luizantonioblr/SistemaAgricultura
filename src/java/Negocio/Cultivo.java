@@ -36,7 +36,7 @@ public class Cultivo implements Serializable {
     private String localizacao;
 
     @OneToMany
-    private List<ExecurcaoServico> execurcoes = new ArrayList<ExecurcaoServico>();
+    private List<ExecucaoServico> execurcoes = new ArrayList<ExecucaoServico>();
 
     @Deprecated
     public Cultivo() {
@@ -85,11 +85,11 @@ public class Cultivo implements Serializable {
         this.localizacao = localizacao;
     }
 
-    public List<ExecurcaoServico> getExecurcoes() {
+    public List<ExecucaoServico> getExecurcoes() {
         return execurcoes;
     }
 
-    public void setExecurcoes(List<ExecurcaoServico> execurcoes) {
+    public void setExecurcoes(List<ExecucaoServico> execurcoes) {
         this.execurcoes = execurcoes;
     }
 }
