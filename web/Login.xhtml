@@ -30,10 +30,10 @@
                     <div id = "cabecalho">
 
                         <h:outputText value = "Login : " />
-                        <p:inputText value = "#{agricultor.usuario.email}" />
+                        <p:inputText value = "#{user.email}" />
                         <h:outputText value = " Senha : " />
-                        <p:password value = "#{agricultor.usuario.senha}" />
-                        <p:commandButton value = "Entrar" action = "#{controladorLogin.login(agricultor)}" update = ":formLogin:gro"/>
+                        <p:password value = "#{user.senha}" />
+                        <p:commandButton value = "Entrar" action = "#{controladorLogin.login(user)}" update = ":formLogin:gro"/>
 
                     </div>
 

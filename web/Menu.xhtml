@@ -8,6 +8,12 @@
     </h:head>
     <h:body>
 
+        <c:if test="#{controladorLogin.loggedIn == false}">
+            <script>
+                location.href = "/SistemaAgricultura/faces/Login.xhtml";
+            </script>
+        </c:if>
+
         <h:form id="formMenu"> 
 
             <p:growl id="gro3" sticky="false" life="4000"/>

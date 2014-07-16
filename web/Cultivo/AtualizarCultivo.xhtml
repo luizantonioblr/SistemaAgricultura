@@ -10,10 +10,16 @@
     </h:head>
     <h:body>
 
+        <c:if test="#{controladorLogin.loggedIn == false}">
+            <script>
+                location.href = "/SistemaAgricultura/faces/Login.xhtml"
+            </script>
+        </c:if>
+
         <ui:include src = "/Menu.xhtml" />
-        
+
         <p:growl id = "gro" sticky = "false" life = "4000"/>
-        
+
         <h:form id="formAtualizarCultivo">
 
             <center>
@@ -33,7 +39,20 @@
 
                     </p:panelGrid>
 
-                    <p:commandButton value="Atualizar" action="#{ControladorC.atualizar(ControladorC.selectedC)}" update = ":gro"/> 
+                    <p:commandButton value="Atualizar" oncomplete = "painel.show()" /> 
+
+                    <p:dialog id = "dial5" appendToBody = "false" modal="true" closable="false" resizable="false" widgetVar="painel">
+
+                        <f:facet name = "header">
+                            Deseja Realemnte fazer a Atualização
+                        </f:facet>
+
+                        <div style = "text-align: center;">
+                            <p:commandButton value = "Sim" action="#{ControladorC.atualizar(ControladorC.selectedC)}" oncomplete = "painel.hide()" 
+                                             update = ":gro"/>
+                            <p:commandButton value = "Não" oncomplete = "painel.hide()" />
+                        </div>
+                    </p:dialog>
 
                 </p:layoutUnit>
 

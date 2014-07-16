@@ -8,17 +8,17 @@
     </h:head>
     <h:body>
 
+        <c:if test="#{controladorLogin.loggedIn == false}">
+            <script>
+                location.href = "/SistemaAgricultura/faces/Login.xhtml"
+            </script>
+        </c:if>
+
         <p:growl id="gro1" sticky="false" life="4000"/>
 
         <ui:include src = "/Menu.xhtml"/>
 
         <h:form id = "formAtualizarConta">
-
-            <c:if test="#{controladorLogin.loggedIn == false}">
-                <script>
-                    location.href = "/SistemaAgricultura/faces/Login.xhtml"
-                </script>
-            </c:if>
 
             <center>        
 

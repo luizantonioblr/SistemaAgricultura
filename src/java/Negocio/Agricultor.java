@@ -41,6 +41,7 @@ public class Agricultor implements Serializable {
     
     @Deprecated
     public Agricultor() {
+        this.usuario = new Usuario();
     }
 
     public Agricultor(String nome, Endereco endereco, String celular, String telefone, Usuario usuario) {

@@ -9,6 +9,12 @@
     </h:head>    
     <h:body>
 
+        <c:if test="#{controladorLogin.loggedIn == false}">
+            <script>
+                location.href = "/SistemaAgricultura/faces/Login.xhtml"
+            </script>
+        </c:if>
+
         <ui:include src = "/Menu.xhtml"/>    
 
         <p:growl id="gro" sticky="false" life="4000"/>

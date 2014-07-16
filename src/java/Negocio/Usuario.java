@@ -1,14 +1,15 @@
 package Negocio;
 
 import java.io.Serializable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 
 
-
+@ManagedBean(name="user")
+@RequestScoped
 @Embeddable
 public class Usuario implements Serializable {
 
