@@ -50,6 +50,7 @@ public class Cultivo extends AbstractEntity implements Serializable {
         this.localizacao = localizacao;
     }
 
+    @Override
     public Long getId() {
         return id;
     }

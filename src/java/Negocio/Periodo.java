@@ -2,8 +2,10 @@ package Negocio;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Embeddable;
 
+@ManagedBean(name = "periodo")
 @Embeddable
 public class Periodo implements Serializable {
 

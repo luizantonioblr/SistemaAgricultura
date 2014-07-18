@@ -6,6 +6,7 @@ import DaoHibernate.DaoManagerHiber;
 import Negocio.Servico;
 
 import Repositorio.interfaces.RepositorioInterfaceServico;
+import java.util.List;
 
 
 public class RepositorioImplementacaoServicoBD implements RepositorioInterfaceServico {
@@ -25,6 +26,11 @@ public class RepositorioImplementacaoServicoBD implements RepositorioInterfaceSe
          DaoManagerHiber.update(servico);
     }
 */
+
+    @Override
+    public List<Servico> recuperarTodos() {
+        return (List<Servico>) DaoManagerHiber.recover("from Servico");
+    }
    
     
 }

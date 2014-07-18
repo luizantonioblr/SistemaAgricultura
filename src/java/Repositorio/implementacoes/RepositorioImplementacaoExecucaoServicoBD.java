@@ -3,7 +3,7 @@
 package Repositorio.implementacoes;
 
 import DaoHibernate.DaoManagerHiber;
-import Negocio.Etapa;
+
 import Negocio.ExecucaoServico;
 import Repositorio.interfaces.RepositorioInterfaceExecucaoServico;
 
@@ -11,17 +11,10 @@ import Repositorio.interfaces.RepositorioInterfaceExecucaoServico;
 public class RepositorioImplementacaoExecucaoServicoBD implements RepositorioInterfaceExecucaoServico {
 
     @Override
-    public void adicionar(ExecucaoServico es) {
-          DaoManagerHiber.persist(es);
+    public void adicionar(ExecucaoServico execucaoservico) {
+          DaoManagerHiber.persist(execucaoservico);
           
     }
 
-    @Override
-    public void recuperarPorEtapa(Etapa etapa) {
-        DaoManagerHiber.persist(etapa);
-    }
-    
-    
-    
-    
+       
 }

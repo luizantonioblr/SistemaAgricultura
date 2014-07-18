@@ -12,7 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@ManagedBean(name = "ExecurcaoServico")
+@ManagedBean(name = "ExecucaoServico")
 @RequestScoped
 @Entity
 public class ExecucaoServico implements Serializable {

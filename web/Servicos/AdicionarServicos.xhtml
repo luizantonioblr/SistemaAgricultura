@@ -3,72 +3,30 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
     <h:head>
-        <title>Cadastrar Etapas</title>
+        <title>Cadastro de Serviço</title>
     </h:head>
     <h:body>
         <ui:include src = "/Menu.xhtml"/>  
-        
-        <p:growl id="gro4" sticky="false" life="4000"/>
-
-        <center>
-            <h:form id = "formExe">
-
+        <p:growl id="gro" sticky="false" life="4000"/>
+        <h:form id = "formservico">
+            <center>
                 <p:layoutUnit position = "center" style = "width: 450px">
+                    <h3>Cadastrar Serviço</h3>
+                    <h:panelGrid columns="2" >
+                        <h:outputText value = "Serviço:"/>
+                        <p:inputText  value = "#{servico.nome}" style="width: 180px"/>
 
-                    <p:panel header="Selecione as execuções do servirço">
-
-                        <h:panelGrid columns="2">
-
-                            <h:outputText value = "Cultivo: " />
-                            <p:selectOneMenu filter="true" required = "true" value = "#{ControladorC.selectedC.nome}" panelStyle = "width: 200px;" converter = "converterEntity">
-                                <f:selectItem itemLabel = "Selecione" itemValue = "" />
-                                <f:selectItems value = "#{ControladorC.recuperarTodos()}" var = "cultivo" itemLabel = "#{cultivo.nome}" itemValue="#{cultivo}"/>
-                            </p:selectOneMenu>
-
-                            <h:outputLabel value="Etapas:" />  
-                            <p:selectOneMenu value="#{ControladorES.etapa}"> 
-                                <f:selectItem itemLabel="Selecione" />  
-                                <f:selectItems value="#{ControladorES.etapa}" var="a"  
-                                               itemValue="#{a}" itemLabel="#{a.label}"/> 
-                            </p:selectOneMenu>
-
-                            <h:outputText value = "Serviço:"/>
-                            <p:inputText  value = "#{servico.nome}" style="width: 170px"/>
-
-                            <h:outputText value="Equipamentos:" />  
-                            <p:selectOneMenu value=""> 
-                                <f:selectItem itemLabel="Selecione" />  
-                                <f:selectItems value="" var="e"  
-                                               itemValue="#{e}" itemLabel="#{e.equi}"/> 
-                            </p:selectOneMenu>
-
-                        </h:panelGrid>  
-
-                        <p:commandButton value = "Cadastrar" oncomplete = "painel4.show()"/>
-                        
-                        <p:dialog id="dial" appendToBody="true" closable="false" visible="false" widgetVar="painel4"
-                                  resizable="false" modal="true">
-                        
-                            <f:facet name = "header">
-                                Deseja Realmente Fazer o Cadastro do Serviço?
-                            </f:facet>
-                            
-                            <div style="text-align: center;">
-                                <p:commandButton value = "Sim" action = "#{ControladorS.adicionar(servico)}" oncomplete="painel4.hide()"/>
-                                <p:commandButton value = "Não" oncomplete = "painel4.hide()"/>
-                            </div>
-                        
-                        </p:dialog>
-
-                    </p:panel>
-
+                        <h:outputLabel value="Etapas:"/>  
+                        <p:selectOneMenu value="#{servico.etapa}"> 
+                            <f:selectItem itemLabel="Selecione" />  
+                            <f:selectItems value="#{ControladorS.etapas}" var="e"  
+                                           itemValue="#{e}" itemLabel="#{e.label}"/> 
+                        </p:selectOneMenu>
+                    </h:panelGrid>  
+                    <p:commandButton value = "Adicionar " oncomplete = "#{ControladorS.adicionar(servico)}" update = ":gro"/>
                 </p:layoutUnit>
-
-            </h:form>
-
-        </center>
-
+            </center>
+        </h:form>
     </h:body>
 </html>

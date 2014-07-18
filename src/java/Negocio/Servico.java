@@ -1,5 +1,6 @@
 package Negocio;
 
+import Converter.AbstractEntity;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @ManagedBean(name = "servico")
 @RequestScoped
 @Entity
-public class Servico implements Serializable {
+public class Servico extends AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue
@@ -50,10 +51,12 @@ public class Servico implements Serializable {
         this.etapa = etapa;
     }
 
+    @Override
     public Long getId() {
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
