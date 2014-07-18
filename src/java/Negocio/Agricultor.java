@@ -136,4 +136,5 @@ public class Agricultor implements Serializable {
      public void setListaCultivo(List<Cultivo> listaCultivo) {
      this.listaCultivo = listaCultivo;
      }
+ 
 }

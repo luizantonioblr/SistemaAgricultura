@@ -58,7 +58,7 @@
                             <h:outputText value = "Celular: " />
                             <p:inputMask value = "#{agricultor.celular}" mask = "(99)9999-9999" />
                             <h:outputText value = "E-mail: "/>
-                            <p:inputText value = "#{agricultor.usuario.email}" />
+                            <p:inputText value="#{agricultor.usuario.email}"/>
                             <h:outputText value = "Senha: " />
                             <p:password value = "#{agricultor.usuario.senha}" feedback = "true" maxlength="10">
                                 <f:validateLength minimum = "4" />
@@ -71,12 +71,8 @@
                         <p:commandButton value = "Cadastrar-se" action = "#{ControladorA.adicionar(agricultor)}" update=":formLogin:gro"/>
 
                     </center>
-
                 </p:layoutUnit>
-
             </p:layout>
-
         </h:form>
-
     </h:body>
 </html>
